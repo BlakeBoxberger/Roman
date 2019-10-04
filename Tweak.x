@@ -11,6 +11,9 @@ NSCalendar *calendar;
 		NSDate *date = [NSDate date];
 		NSDateComponents *components = [calendar components:(NSCalendarUnitHour | NSCalendarUnitMinute) fromDate:date];
 		NSInteger hour = [components hour];
+		if (hour > 12) {
+			hour -= 12;
+		}
 		NSInteger minute = [components minute];
 		NSString *hourString = [self convertToRomanString:hour];
 		NSString *minuteString = [self convertToRomanString:minute];
